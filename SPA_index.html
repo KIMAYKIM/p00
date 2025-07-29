@@ -14,7 +14,36 @@
 
     <div id="app">
         <p>This part is now controlled by Vue</p>
-        <h2>This is a template in the div</h2>
+
+
+        <!-- #2 -->
+        <!-- function + action -->
+        <!-- v-show is only using css (display: none) -> 
+        more used in dropdowns/links/nav etc-->
+        <div v-show="showPerson">Showing Current Person</div>
+        <!-- v-if removes the entire thing -> more time-consuming 
+        more used for keeping login state etc -->
+        <div v-if="showPerson">
+            <p>Hi, I'm {{ person }}</p>
+            <p>I'm from {{ nationality }} and I'm {{ age }} years old.</p>
+        </div>
+
+        <button @click="toggleShowBox">
+            <span v-if="showPerson">Hide Person</span>
+            <!-- <span v-if="!showPerson">Show Person</span> -->
+            <span v-else>Show Person</span>
+        </button>
+        <!-- #2 -->
+        
+        <!-- #1 -->
+        <!-- <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button> -->
+
+
+        <!-- Did you know? v-on: can be replaced with @
+        <div @click="changePerson('KIM Hye Jung')">Change Person</div>
+        -->
+        <!-- #1 -->
     </div>
 
     <script src="SPA_app.js"></script>
