@@ -11,12 +11,18 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        changePerson(person) {
-            // this.person = 'KIM Ejoo'
-            this.person = person
-        },
+        // changePerson(person) {
+        //     // this.person = 'KIM Ejoo'
+        //     this.person = person
+        // },
         toggleShowBox() {
             this.showPerson = !this.showPerson
+        },
+        handleEvent() {
+            console.log('HELLLLLOOOOOOOO')
+        },
+        alertEvent() {
+            alert('AAAAAAAAAAAAAAAAAaa')
         }
     }
 })

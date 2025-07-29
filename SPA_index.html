@@ -4,6 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello Vue ㅇㅅㅇ</h1>
@@ -15,14 +25,7 @@
     <div id="app">
         <p>This part is now controlled by Vue</p>
 
-
-        <!-- #2 -->
-        <!-- function + action -->
-        <!-- v-show is only using css (display: none) -> 
-        more used in dropdowns/links/nav etc-->
-        <div v-show="showPerson">Showing Current Person</div>
-        <!-- v-if removes the entire thing -> more time-consuming 
-        more used for keeping login state etc -->
+        <!-- #3 -->
         <div v-if="showPerson">
             <p>Hi, I'm {{ person }}</p>
             <p>I'm from {{ nationality }} and I'm {{ age }} years old.</p>
@@ -33,6 +36,37 @@
             <!-- <span v-if="!showPerson">Show Person</span> -->
             <span v-else>Show Person</span>
         </button>
+
+        <br>
+
+        <!-- mouse events-->
+        <div class="box" @click="alertEvent">click me</div>
+        <div class="box" @mouseover="handleEvent">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box"></div>
+
+        <!-- bookmark: https://www.youtube.com/watch?v=CYPZBK8zUik&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=3
+        3:16 
+        -->
+        
+        <!-- #2 -->
+        <!-- function + action -->
+        <!-- v-show is only using css (display: none) -> 
+        more used in dropdowns/links/nav etc-->
+        <!-- <div v-show="showPerson">Showing Current Person</div> -->
+        <!-- v-if removes the entire thing -> more time-consuming 
+        more used for keeping login state etc -->
+        <!-- <div v-if="showPerson">
+            <p>Hi, I'm {{ person }}</p>
+            <p>I'm from {{ nationality }} and I'm {{ age }} years old.</p>
+        </div> -->
+
+        <!-- <button @click="toggleShowBox">
+            <span v-if="showPerson">Hide Person</span> -->
+            <!-- <span v-if="!showPerson">Show Person</span> -->
+            <!-- <span v-else>Show Person</span>
+        </button> -->
         <!-- #2 -->
         
         <!-- #1 -->
