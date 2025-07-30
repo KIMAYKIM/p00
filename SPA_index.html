@@ -5,13 +5,39 @@
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
-        .box {
+        /* .box {
             padding: 100px 0;
             width: 400px;
             text-align: center;
             background: #ddd;
             margin: 20px;
             display: inline-block;
+        } */
+        /* img {
+            width: 200px;
+        } */
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p, h3, ul {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav {
+            background: #ff9ed2;
+            color: #fff;
         }
     </style>
 </head>
@@ -25,30 +51,70 @@
     <div id="app">
         <p>This part is now controlled by Vue</p>
 
-        <!-- #3 -->
-        <div v-if="showPerson">
-            <p>Hi, I'm {{ person }}</p>
-            <p>I'm from {{ nationality }} and I'm {{ age }} years old.</p>
+        <!-- #4 -->
+        <!-- computed properties if you wanna print out what's in the array -->
+        <p> {{ filteredBooks }} </p>
+
+        <!-- attribute binding -->
+        <!-- <a v-bind:href="url">네이버</a> v-bind: => : -->
+        <a :href="url">NAVER</a>
+
+        <div v-if="showBooks">
+            <!-- if there is a short list and you wanna be sure of your array
+            <p>{{ books[0].title }} - {{ books[0].author }}</p>-->
+            <ul>
+                <!-- filter books using computed properties -->
+                <li v-for="book in filteredBooks" :class="{ fav: book.isFav }" @click="toggleBook(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h3> {{ book.title }} </h3>
+                    <p> {{ book.author }} </p>
+                </li>
+
+                <!-- 'item' in books item is gonna be each row-->
+                <!-- attach attribute to classfor certain condition -->
+                <!-- <li v-for="book in books" :class="{ fav: book.isFav }" @click="toggleBook(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h3> {{ book.title }} </h3>
+                    <p> {{ book.author }} </p>
+                </li> -->
+            </ul>
         </div>
 
         <button @click="toggleShowBox">
-            <span v-if="showPerson">Hide Person</span>
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+        <!-- #4 -->
+
+
+
+
+        <!-- #3 -->
+        <!-- <div v-if="showPerson">
+            <p>Hi, I'm {{ person }}</p>
+            <p>I'm from {{ nationality }} and I'm {{ age }} years old.</p>
+        </div> -->
+
+        <!-- <button @click="toggleShowBox">
+            <span v-if="showPerson">Hide Person</span> -->
             <!-- <span v-if="!showPerson">Show Person</span> -->
-            <span v-else>Show Person</span>
+            <!-- <span v-else>Show Person</span>
         </button>
 
-        <br>
+        <br> -->
 
         <!-- mouse events-->
-        <div class="box" @click="alertEvent">click me</div>
+        <!-- event or if data (i.e. 5) exists, it shows the data -->
+        <!-- <div class="box" @click="handleEvent($event, 5)">click me</div>
         <div class="box" @mouseover="handleEvent">mouseover (enter)</div>
         <div class="box" @mouseleave="handleEvent">mouseleave</div>
         <div class="box" @dblclick="handleEvent">double click</div>
-        <div class="box"></div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div> -->
 
         <!-- bookmark: https://www.youtube.com/watch?v=CYPZBK8zUik&list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1&index=3
         3:16 
         -->
+        <!-- #3 -->
         
         <!-- #2 -->
         <!-- function + action -->
